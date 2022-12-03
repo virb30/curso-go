@@ -1,0 +1,3 @@
+# github.com/virb30/fcutils-secret v0.0.0-20221203122817-7cc23c06c4bc
+## explicit; go 1.19
+github.com/virb30/fcutils-secret/pkg/events
