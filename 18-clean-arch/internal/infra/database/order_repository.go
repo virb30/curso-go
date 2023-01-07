@@ -25,3 +25,22 @@ func (r *OrderRepository) Save(order *entity.Order) error {
 	}
 	return nil
 }
+
+func (r *OrderRepository) GetAll() ([]entity.Order, error) {
+	rows, err := r.Db.Query("SELECT id, price, tax, final_price FROM orders")
+	if err != nil {
+		return []entity.Order{}, err
+	}
+	defer rows.Close()
+
+	var ordersOutput []entity.Order
+	for rows.Next() {
+		var order entity.Order
+		err = rows.Scan(&order.ID, &order.Price, &order.Tax, &order.FinalPrice)
+		if err != nil {
+			return []entity.Order{}, err
+		}
+		ordersOutput = append(ordersOutput, order)
+	}
+	return ordersOutput, nil
+}
