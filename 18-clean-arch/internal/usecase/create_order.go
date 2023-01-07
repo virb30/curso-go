@@ -37,7 +37,7 @@ func NewCreateOrderUseCase(
 }
 
 func (c *CreateOrderUseCase) Execute(input OrderInputDTO) (OrderOutputDTO, error) {
-	order, err := entity.NewOrder(input.ID, input.Price, input.Price)
+	order, err := entity.NewOrder(input.ID, input.Price, input.Tax)
 	if err != nil {
 		return OrderOutputDTO{}, err
 	}

@@ -1,6 +1,7 @@
 package webserver
 
 import (
+	"fmt"
 	"net/http"
 
 	"github.com/go-chi/chi/v5"
@@ -30,5 +31,5 @@ func (s *WebServer) Start() {
 	for path, handler := range s.Handlers {
 		s.Router.Handle(path, handler)
 	}
-	http.ListenAndServe(s.WebServerPort, s.Router)
+	http.ListenAndServe(fmt.Sprintf(":%s", s.WebServerPort), s.Router)
 }
