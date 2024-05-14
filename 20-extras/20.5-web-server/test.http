@@ -1,0 +1,14 @@
+GET http://localhost:9000/books/1
+
+###
+GET http://localhost:9000/books/dir/dasdasda/asdasd
+
+###
+GET http://localhost:9000/books
+
+###
+GET http://localhost:9000/books/precedence/latest
+
+
+###
+GET http://localhost:9000/books/latest
